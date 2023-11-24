@@ -1,0 +1,51 @@
+/* Styles for Sidebar */
+.sidebar-nav {
+    padding-left: 0;
+    margin-bottom: 20px;
+    background-color: #343a40;
+    border-radius: 5px;
+    padding-top: 10px;
+}
+
+.list-group-item {
+    border: none;
+    border-radius: 0;
+    background-color: #343a40;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.list-group-item:hover {
+    background-color: #495057;
+}
+
+.user-info {
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+}
+
+.user-info a {
+    color: #ffffff;
+}
+
+.logout-link {
+    color: #dc3545;
+}
+
+.login-link {
+    color: #28a745;
+}
+
+.nav-link {
+    color: #ffffff;
+}
+
+/* Additional Styling */
+hr {
+    margin-top: 0;
+    margin-bottom: 0;
+    border-color: #007bff;
+}
