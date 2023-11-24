@@ -1,22 +1,32 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>
-    Car list
-    <a href="{% url 'taxi:car-create' %}" class="btn btn-primary link-to-page">
-      Create
-    </a>
-  </h1>
-  {% if car_list %}
-    <ul>
-      {% for car in car_list %}
-        <li>
-          <a href="{% url "taxi:car-detail" pk=car.id %} ">{{ car.id }}</a>
-          {{ car.model }} ({{ car.manufacturer.name }})
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>There are no cars in taxi</p>
-  {% endif %}
+  <div class="newspaper-list">
+    <h1 class="d-flex justify-content-between align-items-center">
+      Newspaper list
+      <a href="{% url 'newspaper:newspaper-create' %}" class="btn btn-primary link-to-page">Create</a>
+    </h1>
+
+    <div class="action-buttons">
+      <form method="get" action="" class="form-inline search-form">
+        {{ search_form|crispy }}
+        <button type="submit" class="btn btn-secondary search-btn"><i class="fas fa-search"></i>🔎</button>
+      </form>
+    </div>
+
+    <div class="list">
+      {% if newspaper_list %}
+        <ul class="list-group mt-4">
+          {% for newspaper in newspaper_list %}
+            <li class="list-group-item">
+              <a href="{% url "newspaper:newspaper-details" pk=newspaper.id %}">{{ newspaper.title }} ({{ newspaper.topic.name }})</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="no-newspaper-msg">There are no newspapers in the agency</p>
+      {% endif %}
+    </div>
+  </div>
 {% endblock %}

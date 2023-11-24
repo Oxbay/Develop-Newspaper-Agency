@@ -1,33 +1,38 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-  <h1>
-    Username: {{ driver.username }}
-    <a href="{% url 'taxi:driver-delete' pk=driver.id %}" class="btn btn-danger link-to-page">
-      Delete
-    </a>
+  <div class="redactor-details">
+    <h1 class="d-flex justify-content-between align-items-center">
+      Username: {{ redactor.username }}
+      <div>
+        <a href="{% url 'newspaper:redactor-update' pk=redactor.id %}" class="btn btn-secondary link-to-page">Edit redactor</a>
+        <a href="{% url 'newspaper:redactor-delete' pk=redactor.id %}" class="btn btn-danger link-to-page">Delete</a>
+      </div>
+    </h1>
 
-    <a href="{% url 'taxi:driver-update' pk=driver.id %}" class="btn btn-secondary link-to-page">
-      Update license number
-    </a>
-  </h1>
+    <div class="redactor-info">
+      <p><strong>First name:</strong> {{ redactor.first_name }}</p>
+      <p><strong>Last name:</strong> {{ redactor.last_name }}</p>
+      <p><strong>Years of experience:</strong> {{ redactor.years_of_experience }}</p>
+      <p><strong>Is staff:</strong> {{ redactor.is_staff }}</p>
+    </div>
 
-  <p><strong>First name:</strong> {{ driver.first_name }}</p>
-  <p><strong>Last name:</strong> {{ driver.last_name }}</p>
-  <p><strong>License number:</strong> {{ driver.license_number }}</p>
-  <p><strong>Is staff:</strong> {{ driver.is_staff }}</p>
+    <div class="ml-3">
+      <h4>Newspapers</h4>
 
-  <div class="ml-3">
-    <h4>Cars</h4>
-
-    {% for car in driver.cars.all %}
-        <hr>
-        <p><strong>Model:</strong> {{ car.model }}</p>
-        <p><strong>Manufacturer:</strong> {{ car.manufacturer.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{car.id}}</p>
-
-    {% empty %}
-      <p>No cars!</p>
-    {% endfor %}
+      {% if redactor.newspaper.all %}
+        <ul class="list-group">
+          {% for newspaper in redactor.newspaper.all %}
+            <li class="list-group-item">
+              <strong>Title:</strong> {{ newspaper.title }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="no-newspaper-msg">No newspapers!</p>
+      {% endif %}
+    </div>
   </div>
+  <link rel="stylesheet" href="{% static 'css/redactor_detail.css' %}">
 {% endblock %}

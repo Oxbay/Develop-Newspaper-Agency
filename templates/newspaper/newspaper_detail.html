@@ -1,42 +1,33 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-  <h1>
+  <h1 class="d-flex justify-content-between align-items-center">
     {{ newspaper.title }}
-    <a href="{% url 'newspaper:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger link-to-page">
-      Delete
-    </a>
-
-    <a href="{% url 'newspaper:newspaper-update' pk=newspaper.id %}" class="btn btn-secondary link-to-page">
-      Update
-    </a>
+    <div class="buttons">
+      <a href="{% url 'newspaper:newspaper-update' pk=newspaper.id %}" class="btn btn-secondary link-to-page">
+        Update
+      </a>
+      <a href="{% url 'newspaper:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger link-to-page">
+        Delete
+      </a>
+    </div>
   </h1>
-  <p>Topic: ({{ newspaper.topic.name }})</p>
-  <h1>
+  <p class="topic-info">Topic: ({{ newspaper.topic.name }})</p>
+  <h1 class="redactors-heading">
     Redactors
-
-{#    {% if newspaper in user.newspapers.all %}#}
-{#      <a href="{% url 'taxi:toggle-car-assign' pk=car.id %}" class="btn btn-danger link-to-page">#}
-{#        Delete me from this car#}
-{#      </a>#}
-{#    {% else %}#}
-{#      <a href="{% url 'taxi:toggle-car-assign' pk=car.id %}" class="btn btn-success link-to-page">#}
-{#        Assign me from this car#}
-{#      </a>#}
-{#    {% endif %}#}
-
   </h1>
-  <hr>
-  <ul>
+  <hr class="section-divider">
+  <ul class="redactor-list">
     {% for redactor in newspaper.publishers.all %}
       <li>{{ redactor.username }} ({{ redactor.first_name }} {{ redactor.last_name }})</li>
     {% endfor %}
   </ul>
 
-  <hr>
-  <ul>
-    {% for content in newspaper.content.all %}
-      <li>{{ newspaper.content }}</li>
-    {% endfor %}
+  <hr class="section-divider">
+  <ul class="content-list">
+      <li class="content">{{ newspaper.content }}</li>
   </ul>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/newspaper_detail.css' %}">
 {% endblock %}

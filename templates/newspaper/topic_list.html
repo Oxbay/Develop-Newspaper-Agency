@@ -1,42 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    Manufacturer List
-    <a href="{% url 'taxi:manufacturer-create' %}" class="btn btn-primary link-to-page">
+ <h1>
+    Topic List
+    <a href="{% url 'newspaper:topic-create' %}" class="btn btn-primary link-to-page">
       Create
     </a>
-  </h1>
+ </h1>
 
-  {% if manufacturer_list %}
+ {% if topic_list %}
     <table class="table">
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Country</th>
         <th>Update</th>
         <th>Delete</th>
       </tr>
 
-      {% for manufacturer in manufacturer_list %}
+      {% for topic in topic_list %}
         <tr>
           <td>
-              {{ manufacturer.id }}
+              {{ topic.id }}
           </td>
           <td>
-              {{ manufacturer.name }}
+              {{ topic.name }}
           </td>
           <td>
-              {{ manufacturer.country }}
-          </td>
-          <td>
-              <a href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">
+              <a href="{% url 'newspaper:topic-update' pk=topic.id %}">
                 Update
               </a>
             </td>
             <td>
               <a style="color: red"
-                href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}">
+                href="{% url 'newspaper:topic-delete' pk=topic.id %}">
                 Delete
               </a>
             </td>
@@ -44,7 +40,7 @@
       {% endfor %}
     </table>
 
-  {% else %}
-      <p>There are no manufacturers in the service.</p>
-  {% endif %}
+ {% else %}
+      <p>There are no topics on the page.</p>
+ {% endif %}
 {% endblock %}
