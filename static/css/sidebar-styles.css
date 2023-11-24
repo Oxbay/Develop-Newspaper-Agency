@@ -1,51 +1,25 @@
-/* Styles for Sidebar */
-.sidebar-nav {
-    padding-left: 0;
-    margin-bottom: 20px;
-    background-color: #343a40;
-    border-radius: 5px;
-    padding-top: 10px;
+
+body {
+    font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    background-color: ghostwhite;
+    color: #000; /* Change text color to black */
 }
 
-.list-group-item {
-    border: none;
-    border-radius: 0;
-    background-color: #343a40;
-    color: #ffffff;
-    font-size: 14px;
+a {
+    color: #000; /* Change link color to black */
 }
 
-.list-group-item:hover {
-    background-color: #495057;
+.container {
+    width: 100%;
+    padding: 0;
 }
 
-.user-info {
-    background-color: #007bff;
-    color: #ffffff;
-    font-weight: bold;
-    border: none;
-    border-radius: 0;
+.row {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.user-info a {
-    color: #ffffff;
-}
-
-.logout-link {
-    color: #dc3545;
-}
-
-.login-link {
-    color: #28a745;
-}
-
-.nav-link {
-    color: #ffffff;
-}
-
-/* Additional Styling */
-hr {
-    margin-top: 0;
-    margin-bottom: 0;
-    border-color: #007bff;
+.col-md-12 {
+    width: 100%;
+    padding: 20px;
 }
