@@ -6,7 +6,9 @@
     <form action="" method="post">
       {% csrf_token %}
 
-      <input type="submit" value="Yes" class="btn btn-danger">
+      <input type="submit" value="Yes, delete" class="btn btn-danger">
+<a href="{% url "newspaper:topic-list" %}"><button type="button" class="btn btn-success">Cancel</button></a>
+
     </form>
   </div>
 {% endblock %}
