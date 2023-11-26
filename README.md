@@ -1,12 +1,13 @@
 ## Newspaper Agency ##
 
-# I've initiated the development of a system dedicated to tracking redactors assigned to each newspaper. This system aims
+ I've initiated the development of a system dedicated to tracking redactors assigned to each newspaper. This system aims
  to provide a comprehensive record of the publishers associated with each newspaper, ensuring seamless monitoring and
  management. 
 
 ## How to install
 
 1) Open Terminal and open folder to clone project in.
+
 
 2) Clone repository into a desirable folder:
 
@@ -16,7 +17,9 @@
 
 3) Open cloned folder in terminal
 
+
 4) If you don't have **pip** installed  [install it here](https://pip.pypa.io/en/stable/installation/#).
+
 
 5) Create and activate **Virtual environment**:
 
