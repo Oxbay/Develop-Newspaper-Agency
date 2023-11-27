@@ -1,0 +1,25 @@
+
+body {
+    font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    background-color: ghostwhite;
+    color: #000; /* Change text color to black */
+}
+
+a {
+    color: #000; /* Change link color to black */
+}
+
+.container {
+    width: 100%;
+    padding: 0;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-md-12 {
+    width: 100%;
+    padding: 20px;
+}

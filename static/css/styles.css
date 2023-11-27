@@ -1,0 +1,97 @@
+.jumbotron {
+    background-color: beige;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 50px auto;
+    max-width: 800px;
+}
+
+.display-4 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.list-group {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.list-group-item {
+    border: none;
+    padding: 8px 16px;
+    font-size: 1.2rem;
+}
+
+.mt-3 {
+    color: #888;
+    font-style: italic;
+}
+
+.delete-confirmation {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.delete-confirmation h1 {
+    color: #333;
+}
+
+.delete-confirmation form {
+    margin-top: 20px;
+}
+
+.delete-confirmation .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.delete-confirmation .btn-danger:hover {
+    background-color: #c82333;
+}
+
+.newspaper-list {
+  margin: 0 auto;
+}
+
+.link-to-page {
+  margin-left: 20px;
+}
+
+.search-form {
+  margin-top: 20px;
+}
+
+.search-btn {
+  background-color: #f8f9fa;
+  border: none;
+  color: #343a40;
+  cursor: pointer;
+}
+
+.no-newspaper-msg {
+  font-style: italic;
+  color: #888;
+  margin-top: 20px;
+}
+
+.list-group-item {
+  margin-top: 10px;
+}
+.redactor-details {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
