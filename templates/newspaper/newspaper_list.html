@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <div class="newspaper-list">
+    <h1 class="d-flex justify-content-between align-items-center">
+      Newspaper list
+      <a href="{% url 'newspaper:newspaper-create' %}" class="btn btn-primary link-to-page">Create</a>
+    </h1>
+
+    <div class="action-buttons">
+      <form method="get" action="" class="form-inline search-form">
+        {{ search_form|crispy }}
+        <button type="submit" class="btn btn-secondary search-btn"><i class="fas fa-search"></i>🔎</button>
+      </form>
+    </div>
+
+    <div class="list">
+      {% if newspaper_list %}
+        <ul class="list-group mt-4">
+          {% for newspaper in newspaper_list %}
+            <li class="list-group-item">
+              <a href="{% url "newspaper:newspaper-details" pk=newspaper.id %}">{{ newspaper.title }} ({{ newspaper.topic.name }})</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="no-newspaper-msg">There are no newspapers in the agency</p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

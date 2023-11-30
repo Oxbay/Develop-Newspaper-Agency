@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="redactor-details">
+    <h1 class="d-flex justify-content-between align-items-center">
+      Username: {{ redactor.username }}
+      <div>
+        <a href="{% url 'newspaper:redactor-update' pk=redactor.id %}" class="btn btn-secondary link-to-page">Edit redactor</a>
+        <a href="{% url 'newspaper:redactor-delete' pk=redactor.id %}" class="btn btn-danger link-to-page">Delete</a>
+      </div>
+    </h1>
+
+    <div class="redactor-info">
+      <p><strong>First name:</strong> {{ redactor.first_name }}</p>
+      <p><strong>Last name:</strong> {{ redactor.last_name }}</p>
+      <p><strong>Years of experience:</strong> {{ redactor.years_of_experience }}</p>
+      <p><strong>Is staff:</strong> {{ redactor.is_staff }}</p>
+    </div>
+
+    <div class="ml-3">
+      <h4>Newspapers</h4>
+
+      {% if redactor.newspaper.all %}
+        <ul class="list-group">
+          {% for newspaper in redactor.newspaper.all %}
+            <li class="list-group-item">
+              <strong>Title:</strong> {{ newspaper.title }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="no-newspaper-msg">No newspapers!</p>
+      {% endif %}
+    </div>
+  </div>
+  <link rel="stylesheet" href="{% static 'css/redactor_detail.css' %}">
+{% endblock %}

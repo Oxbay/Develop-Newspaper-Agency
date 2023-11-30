@@ -1,0 +1,24 @@
+{% load static %}
+<head>
+
+  <link rel="stylesheet" href="{% static 'css/sidebar-styles.css' %}">
+  <title>Newspaper</title>
+</head>
+
+<body>
+<ul class="sidebar-nav list-group">
+  {% if user.is_authenticated %}
+    <li class="list-group-item user-info">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
+    <li class="list-group-item"><a href="{% url 'logout' %}?next={{ request.path }}" class="logout-link">Logout</a></li>
+  {% else %}
+    <li class="list-group-item"><a href="{% url 'login' %}?next={{ request.path }}" class="login-link">Login</a></li>
+  {% endif %}
+
+  <hr>
+
+    <li class="list-group-item"><a href="{% url 'newspaper:index' %}" class="nav-link">Home</a></li>
+    <li class="list-group-item"><a href="{% url 'newspaper:redactor-list' %}" class="nav-link">All Redactors</a></li>
+    <li class="list-group-item"><a href="{% url 'newspaper:newspaper-list' %}" class="nav-link">All Newspapers</a></li>
+    <li class="list-group-item"><a href="{% url 'newspaper:topic-list' %}" class="nav-link">All Topics</a></li>
+</ul>
+</body>
